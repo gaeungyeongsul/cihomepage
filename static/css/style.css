@@ -1,0 +1,352 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration:none;
+}
+/*--------------------------------------
+  1. Font
+--------------------------------------*/
+@font-face {
+    font-family: NanumSquareR;
+    src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NanumSquareR.ttf') format('truetype'),
+    url('../fonts/NanumSquareR.svg') format('svg');
+}
+
+@font-face {
+    font-family: NanumSquareB;
+    src: url('../fonts/NanumSquareB.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NanumSquareB.ttf') format('truetype'),
+    url('../fonts/NanumSquareB.svg') format('svg');
+}
+
+/*--------------------------------------
+  2. body
+--------------------------------------*/
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/*--------------------------------------
+  3. header
+--------------------------------------*/
+.container{
+    margin: 0;
+    padding: 0;
+}
+.header_nav {
+    text-align: center;
+}
+
+.header_logo {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.user_nav {
+    text-align: right;
+    margin-right: 30px;
+}
+.user_nav ul {
+    width: 100%;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+}
+
+.user_nav li {
+    font-family: 'NanumSquareB';
+    font-size: 14px;
+    padding-left: 10px;
+    display: inline;
+}
+.user_nav li:not(:nth-child(1)) {
+    border-left: 1px solid black;
+}
+
+.user_nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.user_nav a:hover {
+    border-bottom: 1px dotted black;
+}
+
+.header_logo img {
+    width: 200px;
+}
+
+.header_nav ul {
+    width: 100%;
+    background-color: #F6E3CE;
+    padding: 10px 0 10px 0;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+}
+
+.header_nav li {
+    font-family: 'NanumSquareB';
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.header_nav a:hover {
+    border-bottom: 1px dotted black;
+}
+
+/*--------------------------------------
+  4. footer
+--------------------------------------*/
+
+.footer {
+    position: relative;
+    bottom: 0;
+    margin-top: 100px;
+    height: 100px;
+    clear: both;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    background-color: #F5D0A9;
+}
+
+/*--------------------------------------
+  5. board, pagination, search
+--------------------------------------*/
+.board{
+    padding-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+}
+
+.board_list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    font-family: 'NanumSquareR';
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 2px solid #F5D0A9;
+    text-align: center;
+}
+
+.board_list td,
+.board_list th {
+    padding: 8px;
+    font-size: 13px;
+}
+
+.board_list tr:not(:first-child):hover {
+    background-color: #f2f2f2;
+}
+
+.board_list th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 2px solid #F5D0A9;
+    border-bottom: 4px double #F5D0A9;
+    color: black;
+    font-size: 14px;
+}
+
+.board_list th:nth-child(1) {
+    width: 10%;
+}
+.board_list th:nth-child(2) {
+    width: 40%;
+}
+.board_list th:nth-child(3) {
+    width: 20%;
+}
+.board_list th:nth-child(1) {
+    width: 15%;
+}
+.board_list th:nth-child(1) {
+    width: 10%;
+}
+.board_list td:nth-child(2) {
+    text-align: left;
+
+}
+
+.writeboard .board_title{
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "nanumsquareR";
+}
+
+.board p {
+    font-family: 'NanumSquareB';
+    font-size: 20px;
+}
+
+.page {
+    font-family: NanumSquareR;
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #F5D0A9;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.search {
+    padding-top: 40px;
+    font-family: NanumSquareR;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.search select {
+    margin-top: 0;
+    padding-top: 0;
+    width: 100px;
+    height: 28px;
+    border: 1px solid #ccc;
+    font-family: NanumSquareR;
+    font-size: 15px;
+}
+
+.search input[type="text"] {
+    border: 1px solid #ddd;
+    height: 24px;
+    width: 200px;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.search input[type="submit"] {
+    height: 28px;
+    width: 70px;
+    font-size: 15px;
+}
+
+.write_button {
+    margin-top: 20px;
+    float: right;
+}
+
+/*--------------------------------------
+  6. read
+--------------------------------------*/
+.boardone{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-top: 2px solid #F5D0A9;
+    font-family: 'NanumSquareR';
+    font-size: 12px;
+    display: block;
+}
+.board_nav_1,
+.board_nav_2 {
+    width: 100%;
+    font-size: 14px;
+}
+
+.boardone .board_no {
+    width: 5%;
+}
+
+.boardone .board_date,
+.boardone .board_reviewnum {
+    float: right;
+    text-align: right;
+    width: 15%;
+}
+
+.boardone .board_title {
+    width: 60%;
+}
+
+.boardone .board_nick {
+    width: 70%;
+}
+
+.board_nav_1 div,
+.board_nav_2 div {
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+}
+
+.board_content {
+    padding: 10px 10px 10px 10px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #F5D0A9;
+}
+.btn{
+    text-align: right;
+}
+.btn input[type="button"],
+input[type="submit"] {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.board_nav_1{
+    border-bottom: 1px dotted #F5D0A9;
+}
+.board_content{
+    padding: 30px 8% 30px 8%;
+}
+
+/*--------------------------------------
+  6. writeboard
+--------------------------------------*/
+.writeboard{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}

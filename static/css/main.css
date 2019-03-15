@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration:none;
+}
+body{
+    height: 100%;
+}
+.gallery-wrapper{
+    position:relative;
+    width:90%;
+    margin:0 auto;
+    padding:10px;
+    border:5px solid #F5D0A9;
+}
+.gallery-wrapper .gallery-list{
+    overflow:hidden;
+    position:relative;
+    width:100%;
+    height: 100%;
+    padding-bottom: 51%;
+    /* padding-bottom : 가로세로비율유지 */
+}
+.gallery-wrapper .gallery-list li{
+    list-style:none;
+    position:absolute;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display:none
+}
+.gallery-wrapper .gallery-list li:first-child{
+    display:block;
+}
+.gallery-wrapper .gallery-list li.active{
+    display:block;
+}
+.gallery-wrapper .gallery-list li a{
+    display:block;
+    text-align: center
+}
+.gallery-wrapper .gallery-list li a img {
+    width: 100%;
+    height: 100%;
+    display:block;
+    object-fit: cover;
+}
+
+.gallery-wrapper .btn-prev {
+    position:absolute;
+    left: 0;
+    top: 40%;
+    color: white;
+    font-size: 25px;
+}
+.gallery-wrapper .btn-next {
+    position:absolute;
+    right: 0;
+    top: 40%;
+    color: white;
+    font-size: 25px;
+}
+.gallery-wrapper .btn-prev {
+    left:20px;
+}
+.gallery-wrapper .btn-next {
+    right:20px;
+}
+.ctrl-box {
+    margin-top:15px;
+    text-align:center;
+}
+.ctrl-box a .bullet {
+    display:inline-block;
+    width: 12px;
+    height: 12px;
+    border:1px solid #cfd2d7;
+    border-radius:100%;
+    background:#dfe2e7;
+    text-indent: -9999em;
+    font-size: 0;
+    vertical-align: middle
+}
+.ctrl-box a.active .bullet {
+    border: 1px solid #F5D0A9;
+    background: #F5D0A9;
+}
+.btn-ctrl {
+    margin-left: 10px;
+    padding: 0 4px;
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
+    background-color: #dadada;
+    line-height: 20px;
+}
+ .chart{
+     width: 92%;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top : 30px;
+ }
+.chart .chart1{
+    display:inline-block;
+    width: 45%;
+    margin-top: 50px;
+}
+.chart .chart2{
+    display:inline-block;
+    width: 45%;
+    float: right;
+    margin-top: 50px;
+}

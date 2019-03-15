@@ -1,0 +1,59 @@
+.naver_search{
+  margin-top: 40px;
+  display: none;
+}
+.naver_list{
+  table-layout:fixed;
+}
+
+.naver_list {
+  font-family: 'NanumSquareR';
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid #F5D0A9;
+}
+
+.naver_list tr th:nth-child(1){
+  width: 60%;
+}
+.naver_list tr th:nth-child(2){
+  width: 20%;
+}
+.naver_list tr th:nth-child(3){
+  width: 20%;
+  padding-left: 10%;
+}
+.naver_list tr td:nth-child(3){
+  padding-left: 10%;
+}
+.naver_list td{
+  padding: 8px;
+  font-size: 13px;
+}
+
+.naver_list tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.naver_list tbody tr a{
+  color: black;
+  text-decoration: none;
+}
+.naver_list tbody tr a:visited {
+  color: #c8c8c8;
+  text-decoration: none;
+}
+
+.naver_list tbody tr a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted black;
+}
+
+.naver_list th {
+  padding: 10px;
+  border-top: 2px solid #F5D0A9;
+  border-bottom: 4px double #F5D0A9;
+  color: black;
+  font-size: 14px;
+  text-align: left;
+}
