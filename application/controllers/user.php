@@ -73,7 +73,6 @@ class User extends CI_Controller {
         if (password_verify($user_password, $get_password)) {
             $newdata = array(
                 'user_id' => $result -> user_id,
-                    //'email' => $result -> email,
                 'logged_in' => TRUE
             );
             $this -> session -> set_userdata($newdata);

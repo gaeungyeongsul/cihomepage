@@ -37,7 +37,7 @@
             <ul>
                 <li><a href="/main">HOME</a></li>
                 <li><a href="/map">지도</a></li>
-                <li><a href="/board/readBoardListView.php">게시판</a></li>
+                <li><a href="/board/readBoardList">게시판</a></li>
             </ul>
         </div>
     </div>
