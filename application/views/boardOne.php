@@ -4,11 +4,13 @@
             var result = confirm('정말로 삭제하시겠습니까?');
             if(result){
                 var board_no = $('input[name=board_no]').val();
+                var board_user_id = $('input[name=board_user_id]').val();
                 $.ajax({
                     method: 'POST',
-                    url : 'deleteBoard.php',
+                    url : '/board/deleteBoard',
                     data : {
-                        'board_no' : board_no
+                        'board_no' : board_no,
+                        'board_user_id' : board_user_id
                     },
                     success : function(result){
                         if(result)
@@ -27,9 +29,7 @@
         <div class="board">
             <div class="boardone">
                 <div class="board_nav_1">
-                    <?php
-
-                    ?>
+                    <input type="hidden" value="<?= $board->board_user_id; ?>" name="board_user_id">
                     <div class="board_no"><?= $board->board_no; ?></div>
                     <div class="board_title"><?= $board->board_title; ?></div>
                     <div class="board_date"><?= $board->board_write_date; ?></div>
@@ -47,12 +47,14 @@
                     ?>
                     <?php
                     if(@$this -> session -> userdata('logged_in') == TRUE){
-                        ?>
+                        if ($this->session->userdata('user_id') === $board->board_user_id){
+                    ?>
                     <form method="post" action="/board/modifyBoardForm">
-                        <input type="hidden" value="<?= $board['board_no']; ?>" name="board_no">
+                        <input type="hidden" value="<?= $board->board_no; ?>" name="board_no">
                         <input type="submit" value="수정하기">
                         <input type="button" value="삭제하기" id="delete_btn">
                         <?php
+                            }
                         }
                         ?>
                         <input type="button" value="목록으로" onclick="location.href='<?=$url; ?>'">

@@ -7,8 +7,6 @@
             crossorigin="anonymous"></script>
     <title>프로젝트</title>
     <link rel="stylesheet" href="/static/css/style.css">
-
-
 </head>
 <body>
 <header>

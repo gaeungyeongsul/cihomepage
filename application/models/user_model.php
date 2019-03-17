@@ -20,15 +20,17 @@ class User_model extends CI_Model{
     }
 
     public function getUser_by_id($user_id){
-        $check_user_id = $this->db->escape($user_id);
-        $user = $this -> db -> get_where('user', array('user_id' => $check_user_id))->row();
+        $user = $this -> db -> get_where('user', array('user_id' => $user_id))->row();
         return $user;
     }
 
     public function getUser_by_nick($user_nickname){
-        $check_user_nickname = $this->db->escape($user_nickname);
-        $user = $this -> db -> get_where('user', array('user_nickname' => $check_user_nickname))->row();
+        $user = $this -> db -> get_where('user', array('user_nickname' => $user_nickname))->row();
         return $user;
+    }
+
+    public function getNick_by_id($user_id){
+        return $this -> db -> get_where('user', array('user_id' => $user_id))->row();
     }
 
     public function joinUser($user_id, $user_password, $user_nickname, $user_gender){
@@ -37,14 +39,15 @@ class User_model extends CI_Model{
         $this->db->set('user_join_date', 'NOW()', false);
         $data = array(
             'user_no' => 0,
-            'user_id' => $this->db->escape($user_id),
+            'user_id' => $user_id,
             'user_password' => $pass,
-            'user_nickname' => $this->db->escape($user_nickname),
+            'user_nickname' => $user_nickname,
             'user_gender' => $user_gender,
             'user_level' => 0
         );
         return $this->db->insert('user', $data);
     }
+
     function myErrorHandler($errno, $errstr, $errfile, $errline)
     {
         if (!(error_reporting() & $errno)) {

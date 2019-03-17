@@ -56,6 +56,100 @@ Class Board extends CI_Controller {
 
     }
 
+    public function writeForm()
+    {
+        if (@$this->session->userdata('logged_in') == TRUE) {
+            $this->load->view('header');
+            $this->load->view('writeBoardForm');
+            $this->load->view('footer');
+        }
+    }
+
+    public function write()
+    {
+        if (@$this->session->userdata('logged_in') == TRUE) {
+            $user_id = $this->session->userdata('user_id');
+            $this->load->model('user_model');
+            $user = $this->user_model->getNick_by_id($user_id);
+            $param = array(
+                'board_content' => $this->input->post('contents'),
+                'board_title' => $this->input->post('title',true),
+                'board_user_id' => $user_id,
+                'board_user_nickname' => $user->user_nickname
+            );
+            $last_board_no = $this->board_model->insertBoard($param);
+            header('Location: /board/readBoardOne?board_no='.$last_board_no);
+            exit;
+        }
+    }
+
+    public function modifyBoardForm()
+    {
+        $board_no = $this->input->post('board_no', true);
+        $board = $this->board_model->getBoardOne($board_no);
+
+        if (@$this->session->userdata('logged_in') == TRUE) {
+            if($this->session->userdata('user_id') == $board->board_user_id){
+                $this->load->view('header');
+                $this->load->view('modifyBoardForm', array('board'=> $board));
+                $this->load->view('footer');
+            }
+        }
+
+    }
+
+    public function modifyBoard()
+    {
+        $board_user_id = $this->input->post('board_user_id');
+        if (@$this->session->userdata('logged_in') == TRUE) {
+            if($this->session->userdata('user_id') == $board_user_id) {
+                $param = array(
+                    'board_no' => $this->input->post('board_no'),
+                    'board_content' => $this->input->post('contents'),
+                    'board_title' => $this->input->post('title', true)
+                );
+                $result = $this->board_model->modifyBoard($param);
+                header('Location: /board/readBoardOne?board_no=' . $param['board_no']);
+                exit;
+            }
+        }
+
+    }
+
+    public function uploadImg()
+    {
+        $config['upload_path'] = './static/img/board_img';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 2048;
+        $config['max_width'] = 0;
+        $config['max_height'] = 0;
+        $config['encrypt_name'] = true;
+        $this->load->library('upload', $config);
+
+        if ( ! ($this->upload->do_upload('file')))
+        {
+            $error_message = $this->upload->display_errors();
+            echo $error_message;
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            $save_url = $data['upload_data']['file_name'];
+            echo $save_url;
+        }
+    }
+
+    public function deleteBoard()
+    {
+        $board_no = $this->input->post('board_no', true);
+        $board_user_id = $this->input->post('board_user_id', true);
+        if (@$this->session->userdata('logged_in') == TRUE) {
+            if ($this->session->userdata('user_id') == $board_user_id) {
+                echo $this->board_model->deleteBoard($board_no);
+            }
+        }
+    }
+
     public function pageList($search)
     {
         $end = $this->getEndPage($search['page'], $search['numb']);
@@ -93,7 +187,6 @@ Class Board extends CI_Controller {
         }
         if(isset($data['keyword'])){
             $check_keyword = $data['keyword'];
-//            $check_keyword = $this->db->escape($data['keyword']);
         }else {
             $check_keyword = '';
         }

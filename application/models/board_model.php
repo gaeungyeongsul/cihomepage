@@ -72,4 +72,33 @@ class Board_model extends CI_Model{
         return $this->db->update('board');
     }
 
+    public function insertBoard($param)
+    {
+        $this->db->set('board_write_date', 'NOW()', false);
+        $data = array(
+            'board_no' => 0,
+            'board_user_id' => $param['board_user_id'],
+            'board_user_nickname' => $param['board_user_nickname'],
+            'board_title' => $param['board_title'],
+            'board_content' => $param['board_content'],
+            'board_views' => 0
+        );
+        $this->db->insert('board', $data);
+        return $this->db->insert_id();
+
+    }
+    public function modifyBoard($param)
+    {
+        $this->db->where('board_no',  $param['board_no']);
+        $data = array(
+            'board_title' => $param['board_title'],
+            'board_content' => $param['board_content']
+        );
+        return $this->db->update('board', $data);
+    }
+
+    public function deleteBoard($board_no)
+    {
+        return $this->db->delete('board',array('board_no'=>$board_no));
+    }
 }
