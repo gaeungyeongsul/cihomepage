@@ -9,7 +9,7 @@ Class Board extends CI_Controller {
 
     public function index()
     {
-
+        $this->readBoardList();
     }
 
     public function readBoardList()

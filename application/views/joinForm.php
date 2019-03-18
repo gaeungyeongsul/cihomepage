@@ -5,6 +5,7 @@
     <div class="box">
         <div class="board">
             <div class="joinForm">
+                <?php if(isset($msg)) echo $msg?>
                 <form action="/user/join" method="post" id="joinForm" onsubmit="return joincheck()">
                     <p>회원가입</p>
                     <table class="join_table">
@@ -46,6 +47,12 @@
                                 남 <input type="radio" name="user_gender" value=2 class="user_gender"></td>
                         </tr>
                     </table>
+                    <div class="captcha">
+                        아래 이미지를 보이는대로 입력해주세요.<br><br>
+                        <?php echo $cap['image']; ?>
+                        <input type="text" name="user_captcha" placeholder="자동입력방지문자">
+                        <input type="hidden" value="<?= $cap['word'] ?>" name="captcha_answer">
+                    </div>
                     <div class="btn">
                         <input type="submit" value="가입하기">
                     </div>
